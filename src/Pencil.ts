@@ -25,7 +25,7 @@ export default class Pencil {
 
     }
 
-    getDegrationValue(char:string):number{
+    getDegradationValue(char:string):number{
 
         if(/\s/.test(char)){ // test for any whitespace
             return 0;
@@ -40,18 +40,18 @@ export default class Pencil {
     }
 
 
-    // should calculate degradings and then write what it can with the current lenght
+    // should calculate degrading and then write what it can with the current length
     write(paper:Paper, content:string){
 
         let textToWrite = "";
 
         for(const char of content){
 
-            const degration = this.getDegrationValue(char);
+            const degradation = this.getDegradationValue(char);
 
-            if(this.point_durability >= degration){
+            if(this.point_durability >= degradation){
                 textToWrite += char;
-                this.point_durability -= degration;
+                this.point_durability -= degradation;
             }else{
                 textToWrite += " ";
             }
@@ -69,7 +69,7 @@ export default class Pencil {
             return true;
         }
 
-        // pencil lenght is short, therefore cannot be sharpened
+        // pencil length is short, therefore cannot be sharpened
         return false;
     }
 
@@ -112,11 +112,10 @@ export default class Pencil {
         }
 
         const startIndex = (spacesMatch?.index!) + 1; // shift starting point after first space
-        const contentArr = paper.getContent().split("");
         let editContent = "";
 
         for(let char of content){
-            const degration = this.getDegrationValue(char);
+            const degration = this.getDegradationValue(char);
             if(this.point_durability >= degration){
                 editContent += char;
             }else{

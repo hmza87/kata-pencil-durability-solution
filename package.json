@@ -2,12 +2,14 @@
   "name": "kpd-solution",
   "version": "1.0.0",
   "scripts": {
-    "test": "vitest"
+    "example": "npx tsx Example.ts",
+    "test": "vitest run"
   },
   "type": "module",
   "license": "MIT",
   "devDependencies": {
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "vitest": "^3.2.4"
   }
