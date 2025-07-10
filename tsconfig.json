@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // This is the key change
+    "types": ["vitest/globals"],
+    "allowImportingTsExtensions" : true,
+
+  },
+  "include": ["src/**/*"],          /* Specify files to include */
+  "exclude": ["node_modules", "**/*.test.ts"] /* Exclude files */
+}
