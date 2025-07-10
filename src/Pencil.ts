@@ -13,6 +13,12 @@ export default class Pencil {
 
 
 
+    /*
+    * @param point_durability initial value of the point, will be set on every sharpening
+    * @param length number of times this pencil can be sharpened
+    * @param eraser_durability number of chars (non-whitespace) this pencil eraser can remove
+    * @param endIndex index on which the erasing stops
+    * */
     constructor (point_durability:number = 0, length:number = 0, eraser_durability:number = 0) {
         this.initial_point_durability = point_durability;
         this.point_durability = point_durability;
@@ -25,6 +31,11 @@ export default class Pencil {
 
     }
 
+    /*
+    * Calculates degradation value for a character
+    * @param char a character to calculate its degradation value
+    * @returns number represents the value of degradation
+    * */
     getDegradationValue(char:string):number{
 
         if(/\s/.test(char)){ // test for any whitespace
@@ -40,7 +51,12 @@ export default class Pencil {
     }
 
 
-    // should calculate degrading and then write what it can with the current length
+    /*
+    * Handle writing logic, degrading pencil and writing on paper
+    * @param paper on which the content will be writen
+    * @param content represents text to write
+    * @returns string represents the actual text written on the paper
+    * */
     write(paper:Paper, content:string){
 
         let textToWrite = "";
@@ -61,7 +77,11 @@ export default class Pencil {
         return paper.write(textToWrite);
     }
 
-    sharpen(){
+    /*
+    * Sharpen the pencil
+    * @returns bool represents whether the pencil was sharpened or not
+    * */
+    sharpen():boolean{
         if(this.length > 0){
 
             this.point_durability = this.initial_point_durability;
@@ -73,6 +93,12 @@ export default class Pencil {
         return false;
     }
 
+    /*
+    * Erase text
+    * @param paper represents the paper to use
+    * @param content represents text to remove
+    * @returns bool represents whether the text was removed or not
+    * */
     erase(paper:Paper, content:string){
 
         if(this.eraser_durability === 0) return false;
@@ -102,6 +128,12 @@ export default class Pencil {
 
     }
 
+    /*
+    * Edit text on paper
+    * @param paper represents the paper to use
+    * @param content represents text to write
+    * @returns bool represents whether the text modified or not
+    * */
     edit(paper:Paper, content:string){
 
         // find an erased space, (multiple whitespaces)

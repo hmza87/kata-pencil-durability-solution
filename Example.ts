@@ -1,5 +1,4 @@
-// Example of usage
-// Class Writer make it simpler to instanciate a paper and pencil for writing.
+// Class Writer make it simpler to instance a paper and pencil for writing.
 
 import Writer from "./src/Writer";
 
