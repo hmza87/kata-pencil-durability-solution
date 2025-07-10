@@ -195,7 +195,7 @@ describe('Eraser Degradation', () => {
         writer.eraseContent("Bill");
 
         // the second word "chuck" should be also replaced with spaces
-        expect(writer.getPaperContent()).toBe("Buffalo B  ");
+        expect(writer.getPaperContent()).toBe("Buffalo B   ");
 
 
     });
@@ -247,7 +247,7 @@ describe('Editing', () => {
             so the text reads "An onion a day keeps the doctor away".
          */
 
-        let writer = new Writer(1000, 10, 0);
+        let writer = new Writer(1000, 10, 1000);
         // let's write something to edit
         writer.writeContent("An apple a day keeps the doctor away");
 

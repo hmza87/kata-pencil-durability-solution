@@ -32,7 +32,7 @@ export default class Writer {
     }
 
     editContent(content:string){
-        return this.pencil.erase(this.paper, content);
+        return this.pencil.edit(this.paper, content);
     }
 
 
